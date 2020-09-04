@@ -17,8 +17,12 @@ def get_track_title(url, encoding, regex):
     :param regex: Regular expression string to search for title
     :return: the reported track title as a string, or "No title found" string
     """
-    request = urllib2.Request(url, headers={'Icy-MetaData': 1})  # Requesting metadata
-    response = urllib2.urlopen(request)
+    request = urllib2.Request(url, headers={'Icy-MetaData': "1"})  # Requesting metadata
+    try:
+        response = urllib2.urlopen(request)
+    except Exception as e:
+        print(e)
+        return "No title found"
     metaint = int(response.headers['icy-metaint'])
     for _ in range(5):
         response.read(metaint)  # Skipping past garbage data
