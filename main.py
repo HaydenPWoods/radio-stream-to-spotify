@@ -1,11 +1,13 @@
 import stream_handling
 import station
-import spotify
+from spotify.track_search import track_search
 
 
 def main():
-    print(stream_handling.get_track_title("http://live-absolute.sharp-stream.com/absoluteradio.mp3", "latin1",
-                                          "StreamTitle='(.*)';S"))
+    stream_track = stream_handling.get_track_title("http://live-absolute.sharp-stream.com/absoluteradio.mp3", "latin1",
+                                                   "StreamTitle='(.*)';S")
+    print(stream_track)
+    print(track_search(stream_track))
     stream_catalogue = []
     streams_txt_location = "streams.txt"
     streams_txt_separator = "@@@"
