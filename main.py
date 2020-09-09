@@ -1,5 +1,6 @@
 import stream_handling
 import station
+import spotify
 
 
 def main():
@@ -19,6 +20,7 @@ def main():
 
     for stream in stream_catalogue:
         print(stream.name)
+
 
 if __name__ == '__main__':
     main()
