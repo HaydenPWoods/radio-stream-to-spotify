@@ -7,6 +7,7 @@ def track_add(spotify_track, playlist_id):
     :param spotify_track: FullTrack
     :param playlist_id: String
     """
+    print(spotify_track)
     tries = 0
     while tries <= 5:
         try:
