@@ -11,11 +11,12 @@ def track_search(track_title):
     try:
         tracks, = spotify.search(track_title, types=('track',), limit=5)
         exclusions = ['karaoke', 'the style of', 'tribute', 'originally performed by', 'includes hidden track',
-                        'bluegrass rendition']
+                      'bluegrass rendition', 'Live From The Royal Albert Hall', 'Ghostface UK Version', 'Spotify',
+                      'Djlilruben', 'djlilruben']
         blacklisted_artists = ['Karaoke', "Pickin' On Series", 'Midifine Systems', 'Studio Allstars',
-                           'Grandes Canciones - Versiones Acústicas', 'Lucky Voice Karaoke', 'The Karaoke Channel',
-                           'Ameritz', 'Poptastik Karaoke', "Singer's Edge Karaoke", 'Brazillian Bossa Nova',
-                           'Nursery Rhymes 123']
+                               'Grandes Canciones - Versiones Acústicas', 'Lucky Voice Karaoke', 'The Karaoke Channel',
+                               'Ameritz', 'Poptastik Karaoke', "Singer's Edge Karaoke", 'Brazillian Bossa Nova',
+                               'Nursery Rhymes 123', 'DJ Top Gun', 'Dj lil Ruben']
         good_track = -1
         # Likely filter search here to remove obvious / unlikely tracks.
         if tracks.total > 0:
@@ -49,5 +50,5 @@ def track_search(track_title):
             if good_track != -1:
                 return good_track
     except Exception as e:
-        print("Some exception occured...")
+        print("Some exception occurred...")
         print(e)
