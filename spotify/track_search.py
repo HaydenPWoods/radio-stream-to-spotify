@@ -29,7 +29,7 @@ def track_search(track_title):
                 curr_track = tracks.items[i]
                 bad_track = False
                 for entry in exclusions:
-                    if entry in curr_track.name:
+                    if entry.upper in curr_track.name.upper:
                         bad_track = True
                         break
                 if bad_track:
@@ -37,7 +37,7 @@ def track_search(track_title):
                 else:
                     for bad_artist in blacklisted_artists:
                         for artist in curr_track.artists:
-                            if bad_artist in artist.name:
+                            if bad_artist.upper in artist.name.upper:
                                 bad_track = True
                                 break
                         if bad_track:
