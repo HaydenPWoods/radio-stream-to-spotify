@@ -1,11 +1,12 @@
 from spotify import spotify
 
 
-def track_search(track_title):
+def track_search(track_title, include_remixes):
     """
     Takes a track title as a string, searches for the song on Spotify, and then returns the URI of the song if found.
     Attempts to exclude karaoke and 'cover tracks' from spam artists.
     :param track_title: String
+    :param include_remixes: Boolean - specifies whether remix tracks are acceptable.
     :return: Spotify URI as a String, or NoneType if no suitable track found.
     """
     try:
@@ -45,8 +46,14 @@ def track_search(track_title):
                     if bad_track:
                         continue
                     else:
-                        good_track = curr_track
-                        break
+                        if not include_remixes:
+                            if "REMIX" in curr_track.name.upper():
+                                bad_track = True
+                            if bad_track:
+                                break
+                        else:
+                            good_track = curr_track
+                            break
             if good_track != -1:
                 return good_track
     except Exception as e:

@@ -27,7 +27,7 @@ def main():
             stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
             print(stream_track)
             if (stream_track != "No title found") & ("STOP ADBREAK" not in stream_track):
-                spotify_track = track_search(stream_track)
+                spotify_track = track_search(stream_track, stream.include_remixes)
                 if spotify_track is not None:
                     track_add(spotify_track, stream.playlist_id)
         time.sleep(60)
