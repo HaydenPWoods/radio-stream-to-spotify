@@ -13,9 +13,9 @@ current song playing most of the time.
 
 **Example Playlists**
 
-* Playlist 1
-* Playlist 2
-* Playlist 3
+* Absolute Radio - 100 Last Songs: https://open.spotify.com/playlist/0V9GJ7AN5KDWcceQHZdpE6?si=5xhtEWVBTZq6VcJOpDn-lw
+* Absolute Radio 00s - 100 Last Songs: https://open.spotify.com/playlist/2LNViAfRMtk5KVxBUO0z5y?si=IWTA38l7SlaSomDkq8RiIw
+* Absolute Radio 10s - 100 Last Songs: https://open.spotify.com/playlist/7lfFh86w4G9frIPWvOlI2k?si=-9v8mLI5T2Gu7ol2eHPq2g
 
 **Prerequisites**
 
