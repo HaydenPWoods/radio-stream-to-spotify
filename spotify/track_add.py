@@ -13,7 +13,7 @@ def track_add(spotify_track, playlist_id):
         try:
             max_tracks = 100  # Maximum number of tracks in the playlist
             spotify_playlist = spotify.playlist(playlist_id)
-            if spotify_playlist.tracks.total >= max_tracks:
+            if spotify_playlist.tracks.total > max_tracks:
                 # Number of tracks in playlist has reached the threshold, so remove oldest.
                 spotify.playlist_remove_indices(playlist_id, [spotify_playlist.tracks.total - 1],
                                                 spotify_playlist.snapshot_id)
