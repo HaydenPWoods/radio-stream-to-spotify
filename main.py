@@ -29,10 +29,10 @@ def main():
             if (stream_track != "No title found") & ("STOP ADBREAK" not in stream_track):
                 stream_track_split = stream_track.strip().split(stream.separator)
                 if int(stream.order) == 1:
-                    spotify_track = track_search(stream_track_split[0], stream_track_split[1].split()[0],
+                    spotify_track = track_search(stream_track_split[0].strip(), stream_track_split[1].split()[0],
                                                  stream.include_remixes)
                 else:
-                    spotify_track = track_search(stream_track_split[1], stream_track_split[0].split()[0],
+                    spotify_track = track_search(stream_track_split[1].strip(), stream_track_split[0].split()[0],
                                                  stream.include_remixes)
                 if spotify_track is not None:
                     track_add(spotify_track, stream.playlist_id)
