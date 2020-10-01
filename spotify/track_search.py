@@ -59,3 +59,55 @@ def track_search(track_title, include_remixes):
     except Exception as e:
         print("Some exception occurred...")
         print(e)
+
+
+def track_search_alt(track_title, artist_name, include_remixes):
+    try:
+        tracks, = spotify.search(track_title, types=('track',), limit=5)
+        exclusions = ['karaoke', 'the style of', 'tribute', 'originally performed by', 'includes hidden track',
+                      'bluegrass rendition', 'Live From The Royal Albert Hall', 'Ghostface UK Version', 'Spotify',
+                      'Djlilruben', 'djlilruben', 'Made Famous by', 'Bimbo Jones Radio Mix', 'Live Lounge']
+        blacklisted_artists = ['Karaoke', "Pickin' On Series", 'Midifine Systems', 'Studio Allstars',
+                               'Grandes Canciones - Versiones Acústicas', 'Lucky Voice Karaoke', 'The Karaoke Channel',
+                               'Ameritz', 'Poptastik Karaoke', "Singer's Edge Karaoke", 'Brazillian Bossa Nova',
+                               'Nursery Rhymes 123', 'DJ Top Gun', 'Dj lil Ruben', 'Extreme DJs & Remixers']
+        good_track = -1
+        if tracks.total > 0:
+            print(tracks.total)
+            if tracks.total < 5:
+                tracks_search_num = tracks.total
+            else:
+                tracks_search_num = 5
+            for i in range(tracks_search_num):
+                curr_track = tracks.items[i]
+                bad_track = False
+                for entry in exclusions:
+                    if entry.upper() in curr_track.name.upper():
+                        bad_track = True
+                        break
+                if bad_track:
+                    continue
+                if artist_name.upper() not in curr_track.artists[0].name.upper():
+                    bad_track = True
+                    continue
+                for bad_artist in blacklisted_artists:
+                    for artist in curr_track.artists:
+                        if bad_artist.upper() in artist.name.upper():
+                            bad_track = True
+                            break
+                    if bad_track:
+                        break
+                if bad_track:
+                    continue
+                if not include_remixes:
+                    if "REMIX" in curr_track.name.upper():
+                        bad_track = True
+                        continue
+                if not bad_track:
+                    good_track = curr_track
+                    break
+            if good_track != -1:
+                return good_track
+    except Exception as e:
+        print("Some exception occured...")
+        print(e)
