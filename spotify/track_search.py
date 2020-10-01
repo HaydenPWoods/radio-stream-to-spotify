@@ -1,4 +1,4 @@
-from spotify import spotify
+from spotify import spotify, exclusions, blacklisted_artists
 
 
 def track_search(track_title, artist_name, include_remixes):
@@ -13,13 +13,6 @@ def track_search(track_title, artist_name, include_remixes):
     """
     try:
         tracks, = spotify.search(track_title, types=('track',), limit=5)
-        exclusions = ['karaoke', 'the style of', 'tribute', 'originally performed by', 'includes hidden track',
-                      'bluegrass rendition', 'Live From The Royal Albert Hall', 'Ghostface UK Version', 'Spotify',
-                      'Djlilruben', 'djlilruben', 'Made Famous by', 'Bimbo Jones Radio Mix', 'Live Lounge']
-        blacklisted_artists = ['Karaoke', "Pickin' On Series", 'Midifine Systems', 'Studio Allstars',
-                               'Grandes Canciones - Versiones Acústicas', 'Lucky Voice Karaoke', 'The Karaoke Channel',
-                               'Ameritz', 'Poptastik Karaoke', "Singer's Edge Karaoke", 'Brazillian Bossa Nova',
-                               'Nursery Rhymes 123', 'DJ Top Gun', 'Dj lil Ruben', 'Extreme DJs & Remixers']
         good_track = -1
         if tracks.total > 0:
             print(tracks.total)
@@ -72,13 +65,6 @@ def track_search_legacy(track_title, include_remixes):
     """
     try:
         tracks, = spotify.search(track_title, types=('track',), limit=5)
-        exclusions = ['karaoke', 'the style of', 'tribute', 'originally performed by', 'includes hidden track',
-                      'bluegrass rendition', 'Live From The Royal Albert Hall', 'Ghostface UK Version', 'Spotify',
-                      'Djlilruben', 'djlilruben', 'Made Famous by', 'Bimbo Jones Radio Mix', 'Live Lounge']
-        blacklisted_artists = ['Karaoke', "Pickin' On Series", 'Midifine Systems', 'Studio Allstars',
-                               'Grandes Canciones - Versiones Acústicas', 'Lucky Voice Karaoke', 'The Karaoke Channel',
-                               'Ameritz', 'Poptastik Karaoke', "Singer's Edge Karaoke", 'Brazillian Bossa Nova',
-                               'Nursery Rhymes 123', 'DJ Top Gun', 'Dj lil Ruben', 'Extreme DJs & Remixers']
         good_track = -1
         # Likely filter search here to remove obvious / unlikely tracks.
         if tracks.total > 0:
