@@ -62,6 +62,15 @@ def track_search(track_title, include_remixes):
 
 
 def track_search_alt(track_title, artist_name, include_remixes):
+    """
+    Takes a track title and artist name as strings, searches for the song on Spotify, and then returns the URI of the
+    song if found. Attempts to exclude karaoke and 'cover tracks' from spam artists.
+    :param track_title: String
+    :param artist_name: String (ideally the first word only - checks against the first artist listed for a track by
+                        Spotify
+    :param include_remixes: Boolean - specifies whether remix tracks are acceptable.
+    :return: Spotify URI as a String, or NoneType if no suitable track found.
+    """
     try:
         tracks, = spotify.search(track_title, types=('track',), limit=5)
         exclusions = ['karaoke', 'the style of', 'tribute', 'originally performed by', 'includes hidden track',
