@@ -30,7 +30,6 @@ def track_search(track_title, artist_name, include_remixes):
                 if bad_track:
                     continue
                 if artist_name.upper() not in curr_track.artists[0].name.upper():
-                    bad_track = True
                     continue
                 for bad_artist in blacklisted_artists:
                     for artist in curr_track.artists:
@@ -43,7 +42,6 @@ def track_search(track_title, artist_name, include_remixes):
                     continue
                 if not include_remixes:
                     if "REMIX" in curr_track.name.upper():
-                        bad_track = True
                         continue
                 if not bad_track:
                     good_track = curr_track
