@@ -12,7 +12,7 @@ def track_search(track_title, artist_name, include_remixes):
     :return: Spotify URI as a String, or NoneType if no suitable track found.
     """
     try:
-        tracks, = spotify.search(track_title, types=('track',), limit=5)
+        tracks, = spotify.search(track_title, types=('track',), limit=10)
         good_track = -1
         if tracks.total > 0:
             print(tracks.total)
