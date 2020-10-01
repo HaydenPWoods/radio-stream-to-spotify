@@ -21,7 +21,8 @@ def main():
             try:
                 stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
                 print(stream_track)
-                if (stream_track != "No title found") & ("ADBREAK" not in stream_track):
+                if (stream_track != "No title found") & ("ADBREAK" not in stream_track) & (stream.separator in
+                                                                                           stream_track):
                     stream_track_split = stream_track.strip().split(stream.separator)
                     if int(stream.order) == 1:
                         spotify_track = track_search(stream_track_split[0].strip(), stream_track_split[1].split()[0],
