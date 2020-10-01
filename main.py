@@ -1,6 +1,6 @@
 import stream_handling
 from station import Station
-from spotify.track_search import track_search, track_search_alt
+from spotify.track_search import track_search, track_search_legacy
 from spotify.track_add import track_add
 import time
 
