@@ -32,7 +32,7 @@ def main():
                     if spotify_track is not None:
                         track_add(spotify_track, stream.playlist_id)
             except Exception as e:
-                print("Some exception occured...")
+                print("Some exception occured... (main)")
                 print(e)
         time.sleep(60)
 

@@ -51,7 +51,7 @@ def track_search(track_title, artist_name, include_remixes):
             if good_track != -1:
                 return good_track
     except Exception as e:
-        print("Some exception occured...")
+        print("Some exception occured... (track_search)")
         print(e)
 
 
@@ -104,5 +104,5 @@ def track_search_legacy(track_title, include_remixes):
             if good_track != -1:
                 return good_track
     except Exception as e:
-        print("Some exception occurred...")
+        print("Some exception occurred... (track_search_legacy")
         print(e)

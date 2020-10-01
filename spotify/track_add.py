@@ -21,6 +21,6 @@ def track_add(spotify_track, playlist_id):
                                                 spotify_playlist.snapshot_id)
             break
         except Exception as e:
-            print("Something went wrong, but retrying...")
+            print("Something went wrong, but retrying... (track_add)")
             print(e)
             tries += 1
