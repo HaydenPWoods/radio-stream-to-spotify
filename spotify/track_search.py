@@ -23,10 +23,10 @@ def track_search(track_title, artist_name, include_remixes):
         good_track = -1
         if tracks.total > 0:
             print(tracks.total)
-            if tracks.total < 5:
+            if tracks.total < 10:
                 tracks_search_num = tracks.total
             else:
-                tracks_search_num = 5
+                tracks_search_num = 10
             for i in range(tracks_search_num):
                 curr_track = tracks.items[i]
                 bad_track = False
