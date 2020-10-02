@@ -25,10 +25,18 @@ def main():
                                                                                            stream_track):
                     stream_track_split = stream_track.strip().split(stream.separator)
                     if int(stream.order) == 1:
-                        spotify_track = track_search(stream_track_split[0].strip(), stream_track_split[1].split()[0],
+                        if stream_track_split[1].split()[0].upper() == "THE":
+                            artist_first_word = stream_track_split[1].split()[1]
+                        else:
+                            artist_first_word = stream_track_split[1].split()[0]
+                        spotify_track = track_search(stream_track_split[0].strip(), artist_first_word,
                                                      stream.include_remixes)
                     else:
-                        spotify_track = track_search(stream_track_split[1].strip(), stream_track_split[0].split()[0],
+                        if stream_track_split[0].split()[0].upper() == "THE":
+                            artist_first_word = stream_track_split[0].split()[1]
+                        else:
+                            artist_first_word = stream_track_split[0].split()[0]
+                        spotify_track = track_search(stream_track_split[1].strip(), artist_first_word,
                                                      stream.include_remixes)
                     if spotify_track is not None:
                         track_add(spotify_track, stream.playlist_id)
