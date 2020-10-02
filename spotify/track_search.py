@@ -15,7 +15,6 @@ def track_search(track_title, artist_name, include_remixes):
         tracks, = spotify.search(track_title, types=('track',), limit=5)
         good_track = -1
         if tracks.total > 0:
-            print(tracks.total)
             if tracks.total < 5:
                 tracks_search_num = tracks.total
             else:
@@ -64,9 +63,7 @@ def track_search_legacy(track_title, include_remixes):
     try:
         tracks, = spotify.search(track_title, types=('track',), limit=5)
         good_track = -1
-        # Likely filter search here to remove obvious / unlikely tracks.
         if tracks.total > 0:
-            print(tracks.total)
             if tracks.total < 5:
                 tracks_search_num = tracks.total
             else:

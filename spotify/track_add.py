@@ -1,3 +1,5 @@
+import logging
+
 from spotify import spotify
 
 
@@ -7,7 +9,6 @@ def track_add(spotify_track, playlist_id):
     :param spotify_track: FullTrack
     :param playlist_id: String
     """
-    print(spotify_track)
     tries = 0
     while tries <= 5:
         try:
@@ -19,6 +20,7 @@ def track_add(spotify_track, playlist_id):
                 # Number of tracks in playlist has reached the threshold, so remove oldest.
                 spotify.playlist_remove_indices(playlist_id, [spotify_playlist.tracks.total - 1],
                                                 spotify_playlist.snapshot_id)
+            logging.info(f'Added track {spotify_track.name} to playlist {spotify_playlist.name}')
             break
         except Exception as e:
             print("Something went wrong, but retrying... (track_add)")
