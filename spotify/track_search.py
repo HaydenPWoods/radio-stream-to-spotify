@@ -39,7 +39,7 @@ def track_search(track_title, artist_name, include_remixes):
                         break
                 if bad_track:
                     continue
-                if include_remixes == "1":
+                if include_remixes == "0":
                     if "REMIX" in curr_track.name.upper():
                         continue
                 if not bad_track:
