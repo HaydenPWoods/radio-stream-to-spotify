@@ -9,6 +9,11 @@ from station import Station
 
 
 def stream_run(stream):
+    """
+    Runs all the functions necessary for polling a stream, searching its' current track on Spotify, and adding it to
+    the respective playlist.
+    :param stream: Station object
+    """
     try:
         stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
         logging.info(f'{stream.name} current track: {stream_track}')
