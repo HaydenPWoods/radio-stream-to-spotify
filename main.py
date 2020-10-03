@@ -5,14 +5,14 @@ import time
 import stream_handling
 from spotify.track_add import track_add
 from spotify.track_search import track_search
-from station import Station
+from stream import Stream
 
 
 def stream_run(stream):
     """
     Runs all the functions necessary for polling a stream, searching its' current track on Spotify, and adding it to
     the respective playlist.
-    :param stream: Station object
+    :param stream: Stream object
     """
     try:
         stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
@@ -48,8 +48,8 @@ def main():
     streams_txt = open(streams_txt_location, "r")
     for line in streams_txt:
         line_values = line.strip().split(streams_txt_separator)
-        station_obj = Station.build_from_list(line_values)
-        stream_catalogue.append(station_obj)
+        stream_obj = Stream.build_from_list(line_values)
+        stream_catalogue.append(stream_obj)
 
     while True:
         log_format = "%(asctime)s: %(message)s"

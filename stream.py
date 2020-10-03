@@ -1,4 +1,4 @@
-class Station:
+class Stream:
     def __init__(self, name, url, encoding, regex, separator, order, playlist_id, include_remixes):
         self.name = name
         self.url = url
