@@ -12,5 +12,7 @@ def get_track_title(url):
                                  .replace("jsonCallback_groove(", "")
                                  .replace(");", ""))
         return virgin_json["nowplaying"][0]["artist"] + " - " + virgin_json["nowplaying"][0]["title"]
-    except:
+    except Exception as e:
+        print("Some exception occurred... (virgin_handling)")
+        print(e)
         return "No title found"
