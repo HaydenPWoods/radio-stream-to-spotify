@@ -3,6 +3,7 @@ import logging
 import time
 
 import stream_handling
+import virgin_handling
 from spotify.track_add import track_add
 from spotify.track_search import track_search
 from stream import Stream
@@ -15,7 +16,10 @@ def stream_run(stream):
     :param stream: Stream object
     """
     try:
-        stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
+        if ".json" in stream.url:
+            stream_track = virgin_handling.get_track_title(stream.url)
+        else:
+            stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
         logging.info(f'{stream.name} current track: {stream_track}')
         if (stream_track != "No title found") & ("ADBREAK" not in stream_track) & (stream.separator in
                                                                                    stream_track):
