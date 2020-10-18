@@ -16,7 +16,7 @@ def stream_run(stream):
     :param stream: Stream object
     """
     try:
-        if ".json" in stream.url:
+        if "virginradio.co.uk" in stream.url:
             stream_track = virgin_handling.get_track_title(stream.url)
         else:
             stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
