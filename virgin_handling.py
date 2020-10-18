@@ -11,8 +11,6 @@ def get_track_title(url):
                                  .replace("jsonCallback_chilled(", "")
                                  .replace("jsonCallback_groove(", "")
                                  .replace(");", ""))
-        artist = virgin_json["nowplaying"][0]["artist"]
-        title = virgin_json["nowplaying"][0]["title"]
         return virgin_json["nowplaying"][0]["artist"] + " - " + virgin_json["nowplaying"][0]["title"]
     except:
         return "No title found"
