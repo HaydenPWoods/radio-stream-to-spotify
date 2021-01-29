@@ -4,6 +4,16 @@ Given a online radio stream URL, this program periodically checks for any
 song title being returned by the stream metadata (the "now playing"), looks
 it up on Spotify, and then adds it to a playlist.
 
+BBC radio streams do the annoying thing of not reporting what song they're playing in the stream metadata - likely to
+get you to use BBC Sounds... Yet, they report the current song for the main stations through Twitter feeds like
+@BBCR1MusicBot (for now...). The latest tweet can be read from these feeds to get the last song played on the station.
+For this purpose, in the 'streams.txt' file (see 'Setting Up'), the name must begin with 'twitter' and the url set to
+the name of the user (e.g. "BBCR1MusicBot"), and the latest tweet can be read and added as a song to the Spotify
+playlist, if found.
+
+Twitter developer keys must be set in the twitter_handling.py file, regardless if you're using the Twitter functionality
+or not. Sorry! This may change in the future.
+
 This code will only work with streams that actually report the current song
 playing in the metadata, and it needs to be in a readable format. I have
 done much of the testing with Absolute Radio streams (UK), which do report the
@@ -20,8 +30,11 @@ current song playing most of the time.
 
 * At least Python 3.6
 * Tekore: https://pypi.org/project/tekore/
+* TwitterSearch: https://pypi.org/project/TwitterSearch/
 
 ## Setting Up
+Set Twitter credentials in the twitter_handling.py (the 4 values at the top) for the Twitter 'now playing' bot handling.
+
 A number of files need to be present for the program to work:
 
 * **A Tekore config file**: Tekore is being set up from a configuration file which you will have to specify the location of when prompted. The contents of said file are detailed here: https://tekore.readthedocs.io/en/stable/advanced_usage.html#application-configuration
