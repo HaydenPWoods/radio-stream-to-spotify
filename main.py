@@ -3,7 +3,6 @@ import logging
 import time
 
 import stream_handling
-import twitter_handling
 import virgin_handling
 from spotify.track_add import track_add
 from spotify.track_search import track_search
@@ -19,8 +18,6 @@ def stream_run(stream):
     try:
         if "virginradio.co.uk" in stream.url:
             stream_track = virgin_handling.get_track_title(stream.url)
-        elif "twitter" in stream.name:
-            stream_track = twitter_handling.get_track_title(stream.url)
         else:
             stream_track = stream_handling.get_track_title(stream.url, stream.encoding, stream.regex)
         logging.info(f'{stream.name} current track: {stream_track}')
