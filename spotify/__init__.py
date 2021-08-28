@@ -3,7 +3,11 @@ import tekore as tk
 # Initialising Tekore
 tk_config_file_location = input("Provide Tekore config file location: ")
 config = tk.config_from_file(tk_config_file_location)
-user_token = tk.prompt_for_user_token(*config, scope=tk.scope.every)  # Tighten scope eventually
+user_token = tk.prompt_for_user_token(*config,
+                                      scope=[tk.scope.playlist_read_private,
+                                             tk.scope.playlist_read_collaborative,
+                                             tk.scope.playlist_modify_public,
+                                             tk.scope.playlist_modify_private])
 spotify = tk.Spotify(user_token)
 
 # Exclusion lists
