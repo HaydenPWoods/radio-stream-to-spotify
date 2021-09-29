@@ -9,13 +9,6 @@ playing in the metadata, and it needs to be in a readable format. I have
 done much of the testing with Absolute Radio streams (UK), which do report the
 current song playing most of the time.
 
-## Example Playlists
-
-* Absolute Radio - 100 Last Songs: https://open.spotify.com/playlist/0V9GJ7AN5KDWcceQHZdpE6?si=5xhtEWVBTZq6VcJOpDn-lw
-* Absolute Radio 00s - 100 Last Songs: https://open.spotify.com/playlist/2LNViAfRMtk5KVxBUO0z5y?si=IWTA38l7SlaSomDkq8RiIw
-* Absolute Radio 10s - 100 Last Songs: https://open.spotify.com/playlist/7lfFh86w4G9frIPWvOlI2k?si=-9v8mLI5T2Gu7ol2eHPq2g
-* KISS FM (UK) - 100 Last Songs: https://open.spotify.com/playlist/3un6OVv6rtssdGZFqeax58?si=d_nZ6FWvQzKIqi1w4vVTgQ
-
 ## Prerequisites
 
 * At least Python 3.6
@@ -34,7 +27,3 @@ A number of files need to be present for the program to work:
   * **Order**: if the artist comes before the track title in the stream data, let this be 0. If it's the opposite, let this be 1.
   * **Playlist ID**: the Spotify ID for the playlist you wish this stations songs to be added to. To obtain, right click a playlist in the client, go to share, then copy Spotify URI and remove "spotify:playlist:" from the start to be left with the ID.
   * **Include Remixes?**: let this be 1 if you want to include remix tracks in the search, else let this be 0.
-  
-  An example line:
-    
-      absolute-radio@@@http://live-absolute.sharp-stream.com/absoluteradio.mp3@@@latin1@@@StreamTitle='(.*)';S@@@-@@@1@@@0V9GJ7AN5KDWcceQHZdpE6@@@0
